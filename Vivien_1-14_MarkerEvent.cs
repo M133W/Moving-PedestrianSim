@@ -23,9 +23,8 @@ public class MarkerEvent : MonoBehaviour
         StreamInfo streamInfo = new StreamInfo(StreamName, StreamType, 1, LSL.LSL.IRREGULAR_RATE,
             channel_format_t.cf_int8, hash.ToString());//hash est source id
         outlet = new StreamOutlet(streamInfo);
-        // RecordStartSimPedVrM();
-        // RecordStartSimPedVA();
     }
+
 
     public void RecordRestartTry()
     {
@@ -46,6 +45,16 @@ public class MarkerEvent : MonoBehaviour
             Debug.Log("Car crash marker recorded for " + gameObject.name);
         }
     }
+
+    // public void RecordNextCondition()
+    // {
+    //     if (outlet != null)
+    //     {
+    //         sample[0] = 3;//"NextCondition";
+    //         outlet.push_sample(sample);
+    //         Debug.Log("New Condition marker recorded for " + gameObject.name);
+    //     }
+    // }
 
     public void RecordHasArrived()
     {
@@ -111,15 +120,15 @@ public class MarkerEvent : MonoBehaviour
             Debug.Log("Const_3s cond marker recorded for " + gameObject.name);
         }
     }
-    // public void RecordCondInter_const_6s()
-    // {
-    //     if (outlet != null)
-    //     {
-    //         sample[0] = 10;//"CondInter_const_6s";
-    //         outlet.push_sample(sample);
-    //         Debug.Log("Const_6s cond marker recorded for " + gameObject.name);
-    //     }
-    // }
+    public void RecordCondInter_const_6s()
+    {
+        if (outlet != null)
+        {
+            sample[0] = 10;//"CondInter_const_6s";
+            outlet.push_sample(sample);
+            Debug.Log("Const_6s cond marker recorded for " + gameObject.name);
+        }
+    }
     public void RecordCondInter_varMinus_3s()
     {
         if (outlet != null)
@@ -129,15 +138,15 @@ public class MarkerEvent : MonoBehaviour
             Debug.Log("Minus_3s cond marker recorded for " + gameObject.name);
         }
     }
-    // public void RecordCondInter_varMinus_6s()
-    // {
-    //     if (outlet != null)
-    //     {
-    //         sample[0] = 12;//"CondInter_varMinus_6s";
-    //         outlet.push_sample(sample);
-    //         Debug.Log("Minus_6s cond marker recorded for " + gameObject.name);
-    //     }
-    // }
+    public void RecordCondInter_varMinus_6s()
+    {
+        if (outlet != null)
+        {
+            sample[0] = 12;//"CondInter_varMinus_6s";
+            outlet.push_sample(sample);
+            Debug.Log("Minus_6s cond marker recorded for " + gameObject.name);
+        }
+    }
     public void RecordCondInter_varPlus_3s()
     {
         if (outlet != null)
@@ -147,68 +156,14 @@ public class MarkerEvent : MonoBehaviour
             Debug.Log("Plus_3s cond marker recorded for " + gameObject.name);
         }
     }
-    // public void RecordCondInter_varPlus_6s()
-    // {
-    //     if (outlet != null)
-    //     {
-    //         sample[0] = 14;//"CondInter_varPlus_6s";
-    //         outlet.push_sample(sample);
-    //         Debug.Log("Plus_6s cond marker recorded for " + gameObject.name);
-    //     }
-    // }
-
-    ////// nouveau ci-après /////
-    public void RecordExtraSceneEnd()
+    public void RecordCondInter_varPlus_6s()
     {
         if (outlet != null)
         {
-            sample[0] =15;//"ExtraSceneEnd";
+            sample[0] = 14;//"CondInter_varPlus_6s";
             outlet.push_sample(sample);
-            Debug.Log("ExtraSceneEnd marker recorded for " + gameObject.name);
+            Debug.Log("Plus_6s cond marker recorded for " + gameObject.name);
         }
     }
-/////////// VA ////////////////////
-    public void RecordStartSimPedVA()
-    {
-        if (outlet != null)
-        {
-            sample[0] =16;//"SimPedVA_everyStart";
-            outlet.push_sample(sample);
-            Debug.Log("SimPed-VA start marker recorded for " + gameObject.name);
-        }
-    }
-
-
-////////// VrM ////////////////////
-    public void RecordStartSimPedVrM()
-    {
-        if (outlet != null)
-        {
-            sample[0] =17;//"SimPedVrM_everyStart";
-            outlet.push_sample(sample);
-            Debug.Log("SimPed-VrM start marker recorded for " + gameObject.name);
-        }
-    }
-
-/////// sim endings ////////
-    public void RecordEndSimPedVA()
-    {
-        if (outlet != null)
-        {
-            sample[0] =18;//"SimPedVA_end";
-            outlet.push_sample(sample);
-            Debug.Log("SimPed-VA end marker recorded for " + gameObject.name);
-        }
-    }
-    public void RecordEndSimPedVrM()
-    {
-        if (outlet != null)
-        {
-            sample[0] =19;//"SimPedVrM_end";
-            outlet.push_sample(sample);
-            Debug.Log("SimPed-VrM end marker recorded for " + gameObject.name);
-        }
-    }
-
 
 }
